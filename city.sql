@@ -1,11 +1,16 @@
 
+DROP TABLE building;
+DROP TABLE city;
+DROP TABLE building_type;
+DROP TABLE seq;
+
+
 CREATE TABLE seq(
     seq_name TEXT NOT NULL,
-    seq_next_id INT NOT NULL,
-    CONSTRAINT pk_seq_name PRIMARY KEY (seq_name)
+    seq_next_id INT NOT NULL
 );
 INSERT INTO seq VALUES('city',1000000),
-                      ('building_type',1000000000),
+                      ('building_type',1000),
                       ('building',1000000000);
 
 CREATE TABLE city(
@@ -29,6 +34,6 @@ CREATE TABLE building(
     city_fk_id INT NOT NULL,
     CONSTRAINT pk_building_pk_id PRIMARY KEY (building_pk_id),
     CONSTRAINT fk_city_fk_id FOREIGN KEY (city_fk_id) REFERENCES city(city_pk_id),
-    CONSTRAINT fk_city_fk_id FOREIGN KEY (building_type_fk_id) REFERENCES building_type(building_type_pk_id)
+    CONSTRAINT fk_building_type_fk_id FOREIGN KEY (building_type_fk_id) REFERENCES building_type(building_type_pk_id)
 );
 
