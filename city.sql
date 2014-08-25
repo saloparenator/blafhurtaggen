@@ -37,3 +37,23 @@ CREATE TABLE building(
     CONSTRAINT fk_building_type_fk_id FOREIGN KEY (building_type_fk_id) REFERENCES building_type(building_type_pk_id)
 );
 
+/*
+rule:
+    every building create trafic between itself and other type of building, 
+    the amount is relative to thier type
+    every building generate pollution, variable by type
+    every building have level of crime
+    
+    some building have special effect
+    hospital reduce impact of pollution
+    police reduce impact of crime rate
+    tramway reduce impact of trafic
+    
+    train station enable market with other city and boost factory
+    teletype will give knownledge about neighbor and boost market
+    
+    residential make other building work
+    factory give ability to build and make money if train station
+    market make money by amount of citizen
+    farm help population grow and make money by amount of surplus if train station
+*/
